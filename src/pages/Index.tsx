@@ -7,7 +7,7 @@ const Index: React.FC = () => {
       <section className="index-content-wrap">
         <img
           className="index-img"
-          src="src/assets/img/Cropped-Ross-black-sunglasses copy.jpeg"
+          src="/assets/img/Cropped-Ross-black-sunglasses copy.jpeg"
           alt="Ross smiling outdoors"
         />
         <div className="index-text">

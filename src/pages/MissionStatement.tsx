@@ -3,7 +3,7 @@ const MissionStatement: React.FC = () => {
     <div>
       <section className="mission-statement">
         <img
-          src="src/assets/img/No Cave farmers ball finals.jpg"
+          src="/assets/img/No Cave farmers ball finals.jpg"
           alt="guitar teacher's rock band"
         />
         <h2>Mission Statement</h2>

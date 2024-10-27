@@ -3,7 +3,7 @@ const Experience: React.FC = () => {
     <div>
       <div className="exp-content-wrap">
         <img
-          src="src/assets/img/Ross Studio Website.png"
+          src="/assets/img/Ross Studio Website.png"
           alt="Ross in his home studio"
           className="exp-img"
         />
