@@ -1,4 +1,4 @@
-``const BookLessons: React.FC = () => {
+const BookLessons: React.FC = () => {
   return (
     <div className="book-lessons-container">
       <section className="book-lessons-1">
