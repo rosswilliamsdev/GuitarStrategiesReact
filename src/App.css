@@ -273,5 +273,6 @@ iframe {
     flex-direction: column; /* Stack the links vertically */
     text-align: center;
     justify-content: center;
+    margin-right: 2.2rem;
   }
 }
