@@ -28,7 +28,7 @@ const ContactForm: React.FC = () => {
 
     try {
       const response = await fetch(
-        "https://guitarstrategiesreact-production.up.railway.app/api/contact",
+        "https://guitarstrategiesreact.onrender.com/api/contact",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
