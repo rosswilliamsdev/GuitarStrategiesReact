@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface FormData {
   name: string;
@@ -15,7 +15,19 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
+  const [showDelayMessage, setShowDelayMessage] = useState(false); // Track delayed message
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isSubmitting) {
+      timer = setTimeout(() => setShowDelayMessage(true), 3000); // Show message after 5 seconds
+    } else {
+      setShowDelayMessage(false); // Hide message when submission completes
+    }
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, [isSubmitting]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,6 +37,7 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true); // Disable button & show loading state
 
     try {
       const response = await fetch(
@@ -39,16 +52,18 @@ const ContactForm: React.FC = () => {
 
       const data = await response.json();
       if (data.success) {
-        setStatus("Message sent successfully.");
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        window.alert("Message sent successfully! ✅"); // Alert on success
+        setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
       } else {
-        setStatus("Failed to send message. Try again.");
+        window.alert("⚠️ Failed to send message. Try again.");
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      setStatus(
-        "Error: Unable to connect. Please check your internet or try again later."
+      window.alert(
+        "❌ Error: Unable to connect. Please check your internet or try again later."
       );
+    } finally {
+      setIsSubmitting(false); // Re-enable button
     }
   };
 
@@ -87,9 +102,13 @@ const ContactForm: React.FC = () => {
           onChange={handleChange}
           required
         ></textarea>
-        <button type="submit">Send</button>
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send"}
+        </button>
       </form>
-      {status && <p>{status}</p>}
+      {isSubmitting && showDelayMessage && (
+        <p>(Sometimes it can take a moment!)</p>
+      )}
     </div>
   );
 };
