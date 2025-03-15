@@ -177,6 +177,70 @@ iframe {
   float: right;
 } */
 
+/*--------------------Contact Form Styling----------------------*/
+
+.contact-form-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-form-container h2 {
+  font-size: 2em;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 66%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(26, 26, 31, 0.3);
+  outline: none;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  background: #0d6efd;
+  color: white;
+  font-size: 1.2rem;
+  padding: 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  width: 71%;
+}
+
+.contact-form button:hover {
+  background: #0b5ed7;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
 /*-------------------Experience Formatting---------------------*/
 .exp-content-wrap {
   font-family: "Lora", serif;
@@ -264,6 +328,11 @@ iframe {
   .book-lessons-container {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .contact-form-container {
+    width: 90%;
+    padding: 1.5rem;
   }
 }
 
