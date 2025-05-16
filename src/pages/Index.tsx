@@ -22,9 +22,9 @@ const Index: React.FC = () => {
           <p>
             If you live in the Kansas City area,{" "}
             <Link className="index-book-lessons" to="/book-lessons">
-              book a month of lessons
+              contact me
             </Link>{" "}
-            with me and we'll make a plan to help you find your sound.
+            and we'll make a plan to help you find your sound.
           </p>
         </div>
       </section>
